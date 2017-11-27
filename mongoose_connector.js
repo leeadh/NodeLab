@@ -9,44 +9,36 @@ var json = [];
 
 
 const requestHandler = (request, response) => { 
-	console.log(request.url)
-	response.end('Hello World')
-}
 
+	db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+	db.on('open', function () {
+	  	db.db.collection('employee',function (err, collection) {
+	  		collection.find().toArray(function(err,items){
+	  			if (err) throw err;
+	  			items.forEach(function(item){
+	  				json.push(item);
+	  				
+	  			});
+	  			console.log(json);
+	  			response.end('hello');
+
+	  		});
+
+
+
+		});
+	});
+
+}
 
 const server = http.createServer(requestHandler)
 
 server.listen(port, (err) => { 
- if (err) {
- return console.log('something happened', err)
- }
-
- console.log(`server is listening on ${port}`)
+	if (err) {
+		return console.log('something happened', err)
+	}
+	console.log(`server is listening on ${port}`)
 })
 
-
-
-
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-// opening the connection and query all objects
-db.on('open', function () {
-  	db.db.collection('employee',function (err, collection) {
-  		collection.find().toArray(function(err,items){
-  			if (err) throw err;
-  			items.forEach(function(item){
-  				//console.log(item);
-  				json.push(item);
-  				
-  			});
-
-  			console.log(json);
-
-  		});
-
-
-
-	});
-});
 
 // === Rendering in the front end === /
