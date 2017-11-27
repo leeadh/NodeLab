@@ -1,10 +1,6 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://demo_user1:password@localhost:27017/simple_demo');
 
-mongoose.connect(mongoDB, {
-  useMongoClient: true
-});
-
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
