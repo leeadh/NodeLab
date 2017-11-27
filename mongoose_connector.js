@@ -21,9 +21,11 @@ db.on('open', function () {
   				
   			});
 
+  			console.log(json);
+
   		});
 
-  		console.log(json);
+
 
 	});
 });
