@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/simple_demo');
+mongoose.connect('mongodb://demo_user1:password@localhost:27017/simple_demo');
 var db = mongoose.connection;
 
 db.on('open', function () {
