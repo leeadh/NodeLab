@@ -8,6 +8,11 @@ var db = mongoose.connection;
 var json = [];
 
 
+const requestHandler = (request, response) => { 
+ console.log(request.url)
+ response.end('Hello World')
+}
+
 const server = http.createServer(requestHandler)
 
 server.listen(port, (err) => { 
@@ -35,10 +40,6 @@ db.on('open', function () {
   			});
 
   			console.log(json);
-  			const requestHandler = (request, response) => { 
-  				console.log(request.url)
-  				response.end('Hello World')
-			}
 
   		});
 
