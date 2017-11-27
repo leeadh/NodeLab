@@ -17,7 +17,7 @@ db.on('open', function () {
   			if (err) throw err;
   			items.forEach(function(item){
   				//console.log(item);
-  				json.push(item.);
+  				json.push(item);
   				console.log(json);
   			});
 
