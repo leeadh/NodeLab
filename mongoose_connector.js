@@ -1,23 +1,12 @@
-var express = require('express');
-var app = express();
-var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://demo_user1:password@localhost:27017/simple_demo';
-var str = "";
+'use strict';
 
-app.route('/Employeeid').get(function(req, res) {
-   MongoClient.connect(url, function(err, db) {
-       var collection = db.collection('employee');
-       var cursor = collection.find({});
-       str = "";
-       cursor.forEach(function(item) {
-           if (item != null) {
-                   str = str + "    Employee id  " + item._id + "</br>";
-           }
-       }, function(err) {
-           res.send(str);
-           db.close();
-          }
-       );
-   });
+var express = require('express'),
+	routes = require('./app/routes/index.js');
+
+var app = express();
+
+routes(app);
+
+app.listen(3000, function () {
+	console.log('Listening on port 3000...');
 });
-var server = app.listen(8000, function() {});
