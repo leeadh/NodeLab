@@ -23,9 +23,9 @@ db.on('open', function () {
 
   		});
 
+  		console.log(json);
+
 	});
 });
-
-console.log(json);
 
 // === Rendering in the front end === /
