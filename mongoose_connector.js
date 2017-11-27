@@ -16,6 +16,7 @@ db.on('open', function () {
   		collection.find().toArray(function(err,items){
   			if (err) throw err;
   			items.forEach(function(item){
+  				console.log(item);
   				json.push(item);
   			});
 
