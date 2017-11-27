@@ -12,7 +12,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // opening the connection and query all objects
 db.on('open', function () {
-	var cursor = db.getCollection('employee').find({},{});
+	var cursor = db.db.getCollection('employee').find({},{});
 	while(cursor.hasNext()){
 		console.log(cursor.next());
 	};
