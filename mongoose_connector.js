@@ -1,7 +1,7 @@
 
 // === ESTABLISH a mongo DB connection and query all objects from the db === //
 const http = require('http') 
-const port = 3000 // define whatever port you like
+const port = 8000 // define whatever port you like
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://demo_user1:password@localhost:27017/simple_demo');
 var db = mongoose.connection;
@@ -9,9 +9,10 @@ var json = [];
 
 
 const requestHandler = (request, response) => { 
- console.log(request.url)
- response.end('Hello World')
+	console.log(request.url)
+	response.end('Hello World')
 }
+
 
 const server = http.createServer(requestHandler)
 
