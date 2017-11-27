@@ -9,27 +9,26 @@ var json = [];
 
 
 const requestHandler = (request, response) => { 
-
-	db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-	db.on('open', function () {
-	  	db.db.collection('employee',function (err, collection) {
-	  		collection.find().toArray(function(err,items){
-	  			if (err) throw err;
-	  			items.forEach(function(item){
-	  				json.push(item);
-	  				
-	  			});
-	  			console.log(json);
-	  			response.end('hello');
-
-	  		});
-
-
-
-		});
-	});
-
+	console.log(request.url)
+	response.end('test')
 }
+
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+db.on('open', function () {
+  	db.db.collection('employee',function (err, collection) {
+  		collection.find().toArray(function(err,items){
+  			if (err) throw err;
+  			items.forEach(function(item){
+  				json.push(item);
+  				
+  			});
+  			console.log(json);
+  		});
+	});
+});
+
 
 const server = http.createServer(requestHandler)
 
