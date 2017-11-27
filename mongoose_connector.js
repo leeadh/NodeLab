@@ -18,7 +18,7 @@ db.on('open', function () {
   			items.forEach(function(item){
   				//console.log(item);
   				json.push(item);
-  				console.log(json);
+  				
   			});
 
   		});
@@ -26,6 +26,6 @@ db.on('open', function () {
 	});
 });
 
-
+console.log(json);
 
 // === Rendering in the front end === /
