@@ -9,7 +9,7 @@ app.get('/',function(req, res) {
    MongoClient.connect(url, function(err, db) {
        var collection = db.collection('employee');
        var cursor = collection.find({});
-       str = "<table>";
+       var str = "<table>";
        cursor.forEach(function(item) {
            if (item != null) {
                    str = str + "<tr><td>" + item.usrName +"</td><td>"+ "</br>";
