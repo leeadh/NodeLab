@@ -12,7 +12,7 @@ app.get('/',function(req, res) {
        str = "";
        cursor.forEach(function(item) {
            if (item != null) {
-                   str = str + "    Employee id  " + item._id + "</br>";
+                   str = str + "    Employee id  " + item.usrName + "</br>";
            }
        }, function(err) {
            res.send(str);
