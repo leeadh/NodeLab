@@ -12,11 +12,12 @@ app.get('/',function(req, res) {
        var str = "<table>";
        cursor.forEach(function(item) {
            if (item != null) {
-                   str = str + "<tr><td>" + item.usrName +"</td><td>"+ "</br>";
+                   str = str + "<tr><td>" + item.usrName +"</td></tr>";
            }
-          str = str +"</table>";
+          
        }, function(err) {
-           res.send(str);
+          str = str +"</table>";
+          res.send(str);
            db.close();
           }
        );
